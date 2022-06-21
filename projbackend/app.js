@@ -29,7 +29,7 @@ app.use(cors());
 
 //My Routes
 app.use("/api", authRoutes);
-app.use("api/user", userRoutes);
+app.use("/api", userRoutes);
 
 //PORT
 const port = process.env.PORT || 8000;
