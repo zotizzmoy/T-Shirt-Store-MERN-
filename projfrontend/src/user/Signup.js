@@ -32,7 +32,7 @@ const Signup = () => {
     }
     return (
         <Base title="Sign up page" description="A signup page!">
-            <h1 className="text-center">Signup</h1>
+            
             {signUpForm()}
         </Base>
     );
