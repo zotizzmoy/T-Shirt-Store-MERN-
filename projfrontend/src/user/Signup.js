@@ -40,6 +40,7 @@ const Signup = () => {
     };
     const successMessage = () => {
         return (
+            
             <div className="alert alert-success"
                 style={{ display: success ? "" : "none" }}
             >
