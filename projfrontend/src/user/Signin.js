@@ -2,6 +2,12 @@ import React, { useState } from "react";
 import Base from "../core/Base";
 import { Link, Redirect } from "react-router-dom";
 
+import { Oval } from 'react-loader-spinner'
+
+
+
+
+
 import { signin, authenticate, isAuthenticated } from "../auth/helper";
 
 const Signin = () => {
@@ -55,9 +61,24 @@ const Signin = () => {
   const loadingMessage = () => {
     return (
       loading && (
-        <div className="alert alert-info">
-          <h2>Loading...</h2>
+        <div className="row">
+          <div className="col-md-6 offset-sm-3 text-left mr-3">
+            <Oval
+              height={80}
+              width={80}
+              color="#4fa94d"
+              wrapperStyle={{}}
+              wrapperClass=""
+              visible={true}
+              ariaLabel='oval-loading'
+              secondaryColor="#4fa94d"
+              strokeWidth={2}
+              strokeWidthSecondary={2}
+
+            />
+          </div>
         </div>
+
       )
     );
   };

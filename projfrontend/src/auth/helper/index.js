@@ -1,4 +1,4 @@
-import {API} from "../../backend";
+
 // API MEANS  http://localhost:8000/api
 
 
@@ -50,7 +50,8 @@ export const  signout = next => {
         localStorage.removeItem("jwt")
         next();
 
-        return fetch(`${API}/signout`, 
+    return fetch(`http://localhost:8000/api/signout/`,
+    
         {
            method:"GET" 
         })
