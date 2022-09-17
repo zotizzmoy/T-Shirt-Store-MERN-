@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
-import { signout, isAuthenticated } from "../auth/helper";
+import { signout, isAuthenticated } from "../auth/helper/index.js";
 
 const currentTab = (history, path) => {
   if (history.location.pathname === path) {
