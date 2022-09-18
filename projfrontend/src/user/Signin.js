@@ -1,19 +1,13 @@
 import React, { useState } from "react";
 import Base from "../core/Base";
-import { Link, Redirect } from "react-router-dom";
-
-import { Oval } from 'react-loader-spinner'
-
-
-
-
+import { Redirect } from "react-router-dom";
 
 import { signin, authenticate, isAuthenticated } from "../auth/helper";
 
 const Signin = () => {
   const [values, setValues] = useState({
-    email: "",
-    password: "",
+    email: "a@hitesh.com",
+    password: "12345",
     error: "",
     loading: false,
     didRedirect: false
@@ -48,9 +42,9 @@ const Signin = () => {
   const performRedirect = () => {
     if (didRedirect) {
       if (user && user.role === 1) {
-        return <p>redirect to admin</p>;
+        return <Redirect to="/admin/dashboard" />;
       } else {
-        return <p>redirect to user dashboard</p>;
+        return <Redirect to="/user/dashboard" />;
       }
     }
     if (isAuthenticated()) {
@@ -61,24 +55,9 @@ const Signin = () => {
   const loadingMessage = () => {
     return (
       loading && (
-        <div className="row">
-          <div className="col-md-6 offset-sm-3 text-left mr-3">
-            <Oval
-              height={80}
-              width={80}
-              color="#4fa94d"
-              wrapperStyle={{}}
-              wrapperClass=""
-              visible={true}
-              ariaLabel='oval-loading'
-              secondaryColor="#4fa94d"
-              strokeWidth={2}
-              strokeWidthSecondary={2}
-
-            />
-          </div>
+        <div className="alert alert-info">
+          <h2>Loading...</h2>
         </div>
-
       )
     );
   };
@@ -137,6 +116,7 @@ const Signin = () => {
       {errorMessage()}
       {signInForm()}
       {performRedirect()}
+
       <p className="text-white text-center">{JSON.stringify(values)}</p>
     </Base>
   );
